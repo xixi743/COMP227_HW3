@@ -26,6 +26,7 @@ switch (state) {
 	
 	if animation_hit_frame(2) {
 		instance_create_layer(x, y+60, "Plants", obj_hole);
+		holes_dug++;
 	}
 	
 	if animation_end() {

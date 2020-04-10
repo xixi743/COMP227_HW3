@@ -17,6 +17,8 @@ alarm[0] = framerate * seconds_to_wait;
 // Tool Positions
 shovel_x = 62;
 shovel_y = 23;
+seed_x = 64;
+seed_y = 32;
 
 // Plot Locations
 hole_range1 = 318;
