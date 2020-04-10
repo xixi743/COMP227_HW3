@@ -13,6 +13,7 @@ switch (state) {
 	#endregion
 	break;
 	
+	
 	case "dig":
 	#region Dig State
 	// need to find plots to plant seeds
@@ -35,9 +36,8 @@ switch (state) {
 	
 	hole_range1 += 100;
 	hole_range2 += 100;
+	i++;
 	state = "walk";
-	
-	
 	#endregion
 	break;
 	
@@ -50,11 +50,8 @@ switch (state) {
 	
 	hspeed = 1;
 	
-	while i <= 7 {
-		if (x+shovel_x >= hole_range1 and x+shovel_x <= hole_range2) and (tool = "shovel") {
-			state = "dig";
-			i++;
-		}
+	if (x+shovel_x >= hole_range1 and x+shovel_x <= hole_range2) and (tool = "shovel") {
+		state = "dig";
 	}
 	
 	if x >= 1050 {
