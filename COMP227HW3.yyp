@@ -207,6 +207,14 @@
             }
         },
         {
+            "Key": "54e662d6-99be-4730-b07c-c0251155edfe",
+            "Value": {
+                "id": "8d5b55b5-80b7-46e4-8285-fc8b6f9334f2",
+                "resourcePath": "sprites\\spr_invisible\\spr_invisible.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "55d510f1-cbca-48a8-b788-59a57919e530",
             "Value": {
                 "id": "0751e2d4-0470-4915-a4a0-c1a1da567f05",

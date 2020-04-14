@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Shovel Step Event
 
 if obj_farmer.state = "wait" {
 	hspeed = obj_farmer.hspeed;
@@ -14,6 +13,13 @@ if obj_farmer.state = "walk" {
 }
 
 switch (state) {
+	
+	case "stop":
+	#region STOPPPPPPP
+	set_state_sprite(spr_invisible, 0, 0);
+	#endregion
+	break;
+	
 	case "idle":
 	#region Idle
 	set_state_sprite(spr_shovel, 0, 0);
@@ -30,9 +36,17 @@ switch (state) {
 	}
 	
 	if animation_end() {
+		if holes_dug >= 8 {
+			obj_farmer.tool = "seed";
+			obj_farmer.state = "wait";
+			state = "stop";
+		} else {
 		obj_farmer.state = "walk";
 		state = "idle";
+		}
 	}
+	
+	
 	#endregion
 	break;
 }
