@@ -72,7 +72,7 @@ switch (state) {
 	#region Plant State
 	
 	hspeed = walk_backward;
-	set_state_sprite(spr_farmer3_idle, idle_speed, 0);
+	set_state_sprite(spr_farmer3_walk, walk_speed, 0);
 	
 	// create seed if it doesn't exist
 	if !instance_exists(obj_seed) {
@@ -82,11 +82,15 @@ switch (state) {
 	
 	show_debug_message(obj_seed.x);
 	
-	if (x+seed_x >= last_hole1 and x+seed_x <= last_hole2) {
+	if (seeds_planted <= 7) and (x+seed_x >= last_hole1 and x+seed_x <= last_hole2) {
 		last_hole1-=100;
 		last_hole2-=100;
-		show_debug_message("reached this point yeeeeeehaw");
+		seeds_planted++;
 		obj_seed.state = "plant";	
+	}
+	
+	if seeds_planted = 8 {
+		state = "wait";
 	}
 	
 	#endregion
