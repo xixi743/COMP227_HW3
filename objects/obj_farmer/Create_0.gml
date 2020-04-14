@@ -28,8 +28,8 @@ seed_y = 32;
 // Plot Locations
 hole_range1 = 318;
 hole_range2 = 320;
-last_hole1 = 1110;
-last_hole2 = 1130;
+last_hole1 = 1077;
+last_hole2 = 1079;
 
 // Tool
 tool = "shovel";
@@ -41,5 +41,5 @@ tool = "shovel";
 // Reset
 reset = 0;
 
-
+// Counting Variables
 seeds_planted = 0;

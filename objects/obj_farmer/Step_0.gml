@@ -4,7 +4,6 @@ clamp(hole_range1, 318, 1118);
 clamp(hole_range2, 320, 1120);
 
 show_debug_message(state);
-show_debug_message(tool);
 
 switch (state) {
 
@@ -66,31 +65,13 @@ switch (state) {
 		}
 	}
 	
-	if tool = "seed" {
-		hspeed = walk_backward;
-		
-		if seeds_planted = 0 {
-			if (x+seed_x >= last_hole1 and x+seed_x <= last_hole2) {
-				hole_range1 -= 100;
-				hole_range2 -= 100;
-				state = "plant";
-			}
-		}
-		
-		if (x+seed_x >= hole_range1 and x+seed_x <= hole_range2) {
-			hole_range1 -= 100;
-			hole_range2 -= 100;
-			state = "plant";
-		}
-	}
-	
 	#endregion
 	break;
 	
 	case "plant":
 	#region Plant State
 	
-	hspeed = 0;
+	hspeed = walk_backward;
 	set_state_sprite(spr_farmer3_idle, idle_speed, 0);
 	
 	// create seed if it doesn't exist
@@ -99,15 +80,14 @@ switch (state) {
 		show_debug_message("seed should be created");
 	}
 	
-	if obj_seed.x 
+	show_debug_message(obj_seed.x);
 	
-	// set shovel's state from idle to dig
-	// then create a hole right there
-	// and some kind of digging animation
-	// ^ done in the shovel object
-	obj_seed.state = "plant";
-
-	state = "walk";
+	if (x+seed_x >= last_hole1 and x+seed_x <= last_hole2) {
+		last_hole1-=100;
+		last_hole2-=100;
+		show_debug_message("reached this point yeeeeeehaw");
+		obj_seed.state = "plant";	
+	}
 	
 	#endregion
 	break;

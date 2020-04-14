@@ -21,6 +21,7 @@ switch (state) {
 	case "idle":
 	#region Idle
 	set_state_sprite(spr_seedling, 0, 0);
+	show_debug_message("idled");
 	#endregion
 	break;
 	
@@ -33,8 +34,10 @@ switch (state) {
 	//	holes_dug++;
 	//}
 	
+	obj_farmer.state = "plant";
+	
 	if animation_end() {
-		obj_farmer.state = "walk";
+		obj_farmer.state = "plant";
 		state = "idle";
 	}
 	#endregion
