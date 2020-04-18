@@ -4,6 +4,12 @@
 hspeed = obj_farmer.hspeed;
 
 switch (state) {
+	case "stop":
+	#region Stop
+	set_state_sprite(spr_invisible, 0, 0);
+	#endregion
+	break;
+	
 	case "idle":
 	#region Idle
 	set_state_sprite(spr_wateringcan, 0, 0);

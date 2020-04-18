@@ -9,6 +9,30 @@ show_debug_message(obj_watering_can.state);
 //show_debug_message(state);
 
 switch (state) {
+	
+	case "standstill":
+	#region Standstill
+	
+	set_state_sprite(spr_farmer3_idle, idle_speed, 0);
+	image_xscale = -5;
+	hspeed = 0;
+	
+	#endregion
+	break;
+	
+	case "back it up":
+	#region Walk Backward
+	
+	image_xscale = 5;
+	hspeed = walk_backward;
+	
+	if x <= 200 {
+		show_debug_message("standstill too early");
+		state = "standstill";
+	}
+	
+	#endregion
+	break;
 
 	case "wait":
 	#region Wait State
@@ -26,7 +50,6 @@ switch (state) {
 	}
 	
 	if seeds_planted > 7 and (x > 199 and x < 201) {
-		show_debug_message("stop walking dude");
 		set_state_sprite(spr_farmer3_idle, idle_speed, 0);
 		hspeed = stop_walking;
 		image_xscale = -5;
@@ -36,7 +59,6 @@ switch (state) {
 		
 		room_goto_next();
 	}
-	
 	
 	#endregion
 	break;
@@ -116,19 +138,25 @@ switch (state) {
 	case "water":
 	#region Water State
 	
-	show_debug_message("made it to water");
-	
 	hspeed = walk_forward;
 	set_state_sprite(spr_farmer3_walk, walk_speed, 0);
 	
 	if (x+wateringcan_x >= hole_range1 and x+wateringcan_x <= hole_range2) {
-		show_debug_message("got here");
 		obj_watering_can.state = "water";
 		hole_range1 += 100;
 		hole_range2 += 100;
+		if hole_range1 >= 1140 {
+			obj_watering_can.state = "stop";
+		}
 	}
 	
-	//if x >= 
+	if x >= 1050 {
+	show_debug_message("made it to the end");
+	image_xscale = 5;
+	state = "back it up";
+	}
+	
+	show_debug_message(x)
 	#endregion
 	break;
 }
