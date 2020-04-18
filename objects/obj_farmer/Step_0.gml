@@ -4,24 +4,40 @@ clamp(hole_range1, 318, 1118);
 clamp(hole_range2, 320, 1120);
 
 show_debug_message(state);
+show_debug_message(obj_watering_can.state);
+
+//show_debug_message(state);
 
 switch (state) {
 
 	case "wait":
 	#region Wait State
 	
-	if obj_shovel.holes_dug >= 8 {
+	if holes_dug >= 8 {
 		if instance_exists(obj_shovel) {
 			instance_create_layer(x+seed_x, y+seed_y, "Tools", obj_seed);
 			tool = "seed";
 			image_xscale = 5;
-			obj_shovel.holes_dug = reset;
+			holes_dug = reset;
 			state = "plant";
+			
+	
 		}
 	}
 	
-	set_state_sprite(spr_farmer3_idle, idle_speed, 0);
-	hspeed = 0;
+	if seeds_planted > 7 and (x > 199 and x < 201) {
+		show_debug_message("stop walking dude");
+		set_state_sprite(spr_farmer3_idle, idle_speed, 0);
+		hspeed = stop_walking;
+		image_xscale = -5;
+		seeds_planted = reset;
+		obj_seed.state = "stop";
+		tool = "none";
+		
+		room_goto_next();
+	}
+	
+	
 	#endregion
 	break;
 	
@@ -65,6 +81,10 @@ switch (state) {
 		}
 	}
 	
+	if tool = "watering can" {
+		show_debug_message("hello hello");
+		state = "water";
+	}
 	#endregion
 	break;
 	
@@ -77,10 +97,7 @@ switch (state) {
 	// create seed if it doesn't exist
 	if !instance_exists(obj_seed) {
 		instance_create_layer(x+seed_x, y+seed_y, "Tools", obj_seed);
-		show_debug_message("seed should be created");
 	}
-	
-	show_debug_message(obj_seed.x);
 	
 	if (seeds_planted <= 7) and (x+seed_x >= last_hole1 and x+seed_x <= last_hole2) {
 		last_hole1-=100;
@@ -93,6 +110,25 @@ switch (state) {
 		state = "wait";
 	}
 	
+	#endregion
+	break;
+	
+	case "water":
+	#region Water State
+	
+	show_debug_message("made it to water");
+	
+	hspeed = walk_forward;
+	set_state_sprite(spr_farmer3_walk, walk_speed, 0);
+	
+	if (x+wateringcan_x >= hole_range1 and x+wateringcan_x <= hole_range2) {
+		show_debug_message("got here");
+		obj_watering_can.state = "water";
+		hole_range1 += 100;
+		hole_range2 += 100;
+	}
+	
+	//if x >= 
 	#endregion
 	break;
 }

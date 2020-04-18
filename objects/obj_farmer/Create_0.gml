@@ -17,13 +17,16 @@ stop_walking = 0;
 // Alarms
 framerate = 60;
 seconds_to_wait = 2;
+three_seconds = 1;
 alarm[0] = framerate * seconds_to_wait;
+alarm[1] = -1;
 
 // Tool Positions
 shovel_x = 62;
 shovel_y = 23;
 seed_x = 62;
 seed_y = 32;
+wateringcan_x = 110;
 
 // Plot Locations
 hole_range1 = 318;
@@ -42,4 +45,5 @@ tool = "shovel";
 reset = 0;
 
 // Counting Variables
+holes_dug = 0;
 seeds_planted = 0;

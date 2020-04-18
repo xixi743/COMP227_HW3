@@ -14,7 +14,8 @@
         "7a2f1ef2-8e5f-410c-aace-9c98466db547",
         "58a59dd8-b12c-4d78-91f5-5fc26b13b6b9",
         "0bd6bb77-9e03-41ea-8c33-2ab3c6f59935",
-        "43a45fab-83af-4a18-8d84-d4d34582655a"
+        "43a45fab-83af-4a18-8d84-d4d34582655a",
+        "e9ffb98d-134a-4cc1-8aa5-c41751b6b4bf"
     ],
     "filterType": "GMSprite",
     "folderName": "Tools",

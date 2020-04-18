@@ -1,16 +1,6 @@
 /// @description Shovel Step Event
 
-if obj_farmer.state = "wait" {
-	hspeed = obj_farmer.hspeed;
-}
-
-if obj_farmer.state = "dig" {
-	hspeed = obj_farmer.hspeed;
-}
-
-if obj_farmer.state = "walk" {
-	hspeed = obj_farmer.hspeed;
-}
+hspeed = obj_farmer.hspeed;
 
 switch (state) {
 	
@@ -32,11 +22,11 @@ switch (state) {
 	
 	if animation_hit_frame(2) {
 		instance_create_layer(x, y+60, "Plants", obj_hole);
-		holes_dug++;
+		obj_farmer.holes_dug++;
 	}
 	
 	if animation_end() {
-		if holes_dug >= 8 {
+		if obj_farmer.holes_dug >= 8 {
 			obj_farmer.tool = "seed";
 			obj_farmer.state = "wait";
 			state = "stop";
