@@ -4,9 +4,7 @@ clamp(hole_range1, 318, 1118);
 clamp(hole_range2, 320, 1120);
 
 show_debug_message(state);
-show_debug_message(obj_watering_can.state);
 
-//show_debug_message(state);
 
 switch (state) {
 	
@@ -16,6 +14,11 @@ switch (state) {
 	set_state_sprite(spr_farmer3_idle, idle_speed, 0);
 	image_xscale = -5;
 	hspeed = 0;
+	
+	if alarm_off = true {
+		alarm[1] = framerate * five_seconds;
+		alarm_off = false;
+	}
 	
 	#endregion
 	break;
@@ -27,7 +30,6 @@ switch (state) {
 	hspeed = walk_backward;
 	
 	if x <= 200 {
-		show_debug_message("standstill too early");
 		state = "standstill";
 	}
 	
@@ -104,7 +106,6 @@ switch (state) {
 	}
 	
 	if tool = "watering can" {
-		show_debug_message("hello hello");
 		state = "water";
 	}
 	#endregion
@@ -141,7 +142,7 @@ switch (state) {
 	hspeed = walk_forward;
 	set_state_sprite(spr_farmer3_walk, walk_speed, 0);
 	
-	if (x+wateringcan_x >= hole_range1 and x+wateringcan_x <= hole_range2) {
+	if (tool = "watering can") and (x+wateringcan_x >= hole_range1 and x+wateringcan_x <= hole_range2) {
 		obj_watering_can.state = "water";
 		hole_range1 += 100;
 		hole_range2 += 100;
@@ -151,12 +152,12 @@ switch (state) {
 	}
 	
 	if x >= 1050 {
-	show_debug_message("made it to the end");
+	seeds_watered = true;
 	image_xscale = 5;
 	state = "back it up";
+	tool = "none";
 	}
 	
-	show_debug_message(x)
 	#endregion
 	break;
 }

@@ -17,9 +17,10 @@ stop_walking = 0;
 // Alarms
 framerate = 60;
 seconds_to_wait = 2;
-three_seconds = 1;
 alarm[0] = framerate * seconds_to_wait;
 alarm[1] = -1;
+five_seconds = 5;
+alarm_off = true;
 
 // Tool Positions
 shovel_x = 62;
@@ -47,3 +48,4 @@ reset = 0;
 // Counting Variables
 holes_dug = 0;
 seeds_planted = 0;
+seeds_watered = false;
