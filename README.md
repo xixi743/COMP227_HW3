@@ -1,7 +1,7 @@
 # COMP227 Game Design
 #### Spring 2020 with Professor Chen @ Occidental College
 
-### Homework 2
+### Homework 3
 
 For this homework assignment we were asked to create a game featuring a farmer as the main character. The farmer grows different kinds of crops. The different kinds of crops will require different amounts of times to ripen. Once a crop is ready to harvest, the character will walk over to the crop and harvest it.
 
