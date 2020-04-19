@@ -1,5 +1,5 @@
-# COMP227 Game Design @ Occidental College
-#### Spring 2020 with Professor Chen
+# COMP227 Game Design
+#### Spring 2020 with Professor Chen @ Occidental College
 
 ### Homework 2
 
