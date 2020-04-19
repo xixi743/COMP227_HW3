@@ -33,9 +33,10 @@ last_hole2 = 1079;
 
 // Tool
 tool = "shovel";
-// tool available include
+// tools available include:
 // shovel
 // seed
+// watering can
 // none
 
 // Reset
