@@ -1,10 +1,5 @@
-/// @description Insert description here
-
 clamp(hole_range1, 318, 1118);
 clamp(hole_range2, 320, 1120);
-
-show_debug_message(state);
-
 
 switch (state) {
 	
@@ -16,6 +11,7 @@ switch (state) {
 	hspeed = 0;
 	
 	if alarm_off = true {
+		// turning on a 5 second alarm for tomatoes to grow
 		alarm[1] = framerate * five_seconds;
 		alarm_off = false;
 	}
@@ -29,8 +25,9 @@ switch (state) {
 	image_xscale = 5;
 	hspeed = walk_backward;
 	
-	if x <= 200 {
+	if x <= 128 {
 		state = "standstill";
+		instance_create_layer(0, 0, "Player", obj_alarm1)
 	}
 	
 	#endregion
@@ -158,6 +155,32 @@ switch (state) {
 	tool = "none";
 	}
 	
+	#endregion
+	break;
+	
+	case "harvest tomatoes":
+	#region Harvest Tomatoes
+	
+	hspeed = walk_forward;
+	set_state_sprite(spr_farmer3_walk, walk_speed, 0);
+	
+	if x >= 670 {
+		state = "standstill";
+		instance_create_layer(0, 0, "Player" ,obj_alarm2);
+	}
+	
+	#endregion
+	break;
+	
+	case "harvest corn":
+	#region Harvest Corn
+	hspeed = walk_forward;
+	set_state_sprite(spr_farmer3_walk, walk_speed, 0);
+	
+	if x >= 1050 {
+		image_xscale = 5;
+		state = "back it up";
+	}
 	#endregion
 	break;
 }

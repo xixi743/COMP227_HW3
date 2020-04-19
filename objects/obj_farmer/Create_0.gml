@@ -1,6 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
-
+/// @description Initialize variables
 
 // Finite State Machine
 state = "wait";
@@ -16,9 +14,7 @@ stop_walking = 0;
 
 // Alarms
 framerate = 60;
-seconds_to_wait = 2;
-alarm[0] = framerate * seconds_to_wait;
-alarm[1] = -1;
+two_seconds = 2;
 five_seconds = 5;
 alarm_off = true;
 

@@ -1,34 +1,24 @@
 {
-    "id": "215f3250-9137-45ec-9bc4-3dd259af30c1",
+    "id": "c113ea9b-87fc-47aa-a28c-7d4a8992c64d",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_controller",
+    "name": "obj_tomato_ripe",
     "eventList": [
         {
-            "id": "d973d1d1-048c-47da-90f8-514aea483904",
+            "id": "1a224b15-695d-4b19-885e-1c99e1a37143",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "215f3250-9137-45ec-9bc4-3dd259af30c1"
-        },
-        {
-            "id": "3f20d9d4-ac4d-4e62-835c-aa1c52cceaa9",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 2,
-            "m_owner": "215f3250-9137-45ec-9bc4-3dd259af30c1"
+            "m_owner": "c113ea9b-87fc-47aa-a28c-7d4a8992c64d"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
     "parentObjectId": "00000000-0000-0000-0000-000000000000",
-    "persistent": true,
+    "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
     "physicsFriction": 0.2,
@@ -43,6 +33,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "00000000-0000-0000-0000-000000000000",
+    "spriteId": "cf3c579c-ce62-47d1-993a-2ef3a5da22ec",
     "visible": true
 }

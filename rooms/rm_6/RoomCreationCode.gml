@@ -1,0 +1,1 @@
+obj_farmer.state = "harvest corn";
